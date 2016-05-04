@@ -1,0 +1,17 @@
+group 'com.github.ktarou.scala'
+version '1.0-SNAPSHOT'
+
+apply plugin: "scala"
+
+repositories{
+    jcenter()
+}
+dependencies {
+    compile 'org.scala-lang:scala-library:2.11.8'
+}
+
+task run(type: JavaExec, dependsOn: classes) {
+    main = 'com.github.ktarou.scala.practice.classes.Point'
+    classpath sourceSets.main.runtimeClasspath
+    classpath configurations.runtime
+}
